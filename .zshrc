@@ -67,3 +67,10 @@ export PATH="/home/benny/.opam/4.01.0/bin:/home/benny/bin:/home/benny/.gvm/bin:/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# Always work in a tmux session if tmux is installed
+if which tmux 2>&1 >/dev/null; then
+  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+    tmux attach -t hack || tmux new -s hack; exit
+  fi
+fi
+
