@@ -67,6 +67,8 @@ export PATH="/home/benny/.opam/4.01.0/bin:/home/benny/bin:/home/benny/.gvm/bin:/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
 export TERM="xterm-256color"
 
 # Always work in a tmux session if tmux is installed
