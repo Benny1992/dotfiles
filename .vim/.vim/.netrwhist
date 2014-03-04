@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/var/www/argealp/extension/hwargealp'
+let g:netrw_dirhist_2='/var/www/argealp/extension/hwargealp/design'
+let g:netrw_dirhist_3='/var/www/argealp/extension/hwargealp/design/argealp'
+let g:netrw_dirhist_4='/var/www/argealp/extension/hwargealp/design/argealp/templates'
+let g:netrw_dirhist_5='/var/www/argealp/extension/hwargealp/design/argealp/templates/profile'
+let g:netrw_dirhist_6='/var/www/RubyApplications/rack-blogengine'
