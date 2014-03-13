@@ -51,8 +51,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/benny/.opam/4.01.0/bin:/home/benny/bin:/home/benny/.gvm/bin:/usr/local/heroku/bin:/home/benny/.rvm/gems/rbx-2.2.5@debug/bin:/home/benny/.rvm/gems/rbx-2.2.5@global/bin:/home/benny/.rvm/rubies/rbx-2.2.5/bin:/home/benny/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/benny/.rvm/bin:/home/benny/.rvm/bin:/home/benny/.rvm/bin:/usr/local/go/bin"
+export PATH="/home/benny/.opam/4.01.0/bin:/home/benny/bin:/home/benny/.gvm/bin:/usr/local/heroku/bin::/home/benny/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/go/bin:$GOPATH/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+export GOPATH="/var/www/go"
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -67,7 +69,6 @@ export PATH="/home/benny/.opam/4.01.0/bin:/home/benny/bin:/home/benny/.gvm/bin:/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 export TERM="xterm-256color"
 
