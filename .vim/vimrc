@@ -25,7 +25,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-
+Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'groenewege/vim-less'
+Bundle 'gabrielelana/vim-markdown'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -42,6 +44,7 @@ set shiftwidth=2
 set expandtab                     " use spaces, not tab characters
 set nocompatible                  " don't need to be compatible with old vim
 set relativenumber                " show relative line numbers
+set number
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
 set hlsearch                      " highlight all search matches
@@ -60,6 +63,8 @@ set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
+set encoding=utf-8                " The encoding displayed.
+set fileencoding=utf-8            " The encoding written to file.
 " runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 " put useful info in status bar
@@ -67,7 +72,8 @@ set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 " set dark background and color scheme
 set background=dark
-colorscheme railscasts
+" colorscheme railscasts
+colorscheme monokai
 
 " set up some custom colors
 highlight clear SignColumn
@@ -99,6 +105,7 @@ let g:ctrlp_map = '<leader>f'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_show_hidden = 1
 
 " use silver searcher for ctrlp
 " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -246,3 +253,8 @@ endfunction
 " run test runner
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
+
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
