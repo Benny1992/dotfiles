@@ -12,22 +12,22 @@ call vundle#rc()
 "call vundle#rc(path)
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " The following are examples of different formats supported.
 " Keep bundle commands between here and filetype plugin indent on.
 " scripts on GitHub repos
-Bundle 'tpope/vim-rails.git'
-Bundle 'https://github.com/plasticboy/vim-markdown.git'
-Bundle 'kien/ctrlp.vim'
-Bundle 'https://github.com/avakhov/vim-yaml.git'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'vim-scripts/The-NERD-tree'
-Bundle 'groenewege/vim-less'
-Bundle 'gabrielelana/vim-markdown'
+Plugin 'tpope/vim-rails.git'
+Plugin 'https://github.com/plasticboy/vim-markdown.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'https://github.com/avakhov/vim-yaml.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'groenewege/vim-less'
+Plugin 'gabrielelana/vim-markdown'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
