@@ -10,6 +10,7 @@ ZSH_THEME="benny"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias be="bundle exec"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -37,7 +38,7 @@ ZSH_THEME="benny"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -51,16 +52,14 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/benny/.opam/4.01.0/bin:/home/benny/bin:/home/benny/.gvm/bin:/usr/local/heroku/bin::/home/benny/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/go/bin:$GOPATH/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-export GOPATH="/var/www/go"
+export PATH="/usr/local/ldc2/bin:$PATH"
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+# export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+# export EDITOR='mvim'
 # fi
 
 # Compilation flags
@@ -74,10 +73,11 @@ export TERM="xterm-256color"
 
 # Always work in a tmux session if tmux is installed
 if which tmux 2>&1 >/dev/null; then
-  tmux attach -t hack || tmux new -s hack
+tmux attach -t hack || tmux new -s hack
 fi
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+source /usr/local/share/chruby/chruby.sh
 
-source $HOME/.aliases
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

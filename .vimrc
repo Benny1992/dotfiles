@@ -28,13 +28,15 @@ Plugin 'mattn/gist-vim'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'groenewege/vim-less'
 Plugin 'gabrielelana/vim-markdown'
+Plugin 'Keithbsmiley/rspec.vim'
+Plugin 'jgdavey/tslime.vim'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " scripts from http://vim-scripts.org/vim/scripts.html
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
+" Plugin 'L9'
+" Plugin 'FuzzyFinder'
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
@@ -72,8 +74,9 @@ set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 " set dark background and color scheme
 set background=dark
-" colorscheme railscasts
-colorscheme monokai
+colorscheme railscasts
+" colorscheme monokai
+" colorscheme base16-railscasts
 
 " set up some custom colors
 highlight clear SignColumn
@@ -205,20 +208,29 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
 " run specs with ',t' via Gary Bernhardt
 function! RunTests(filename)
   " Write the file and run tests for the given filename
   :w
   :silent !clear
   if match(a:filename, '\.feature$') != -1
-    exec ":!bundle exec cucumber " . a:filename
+    :call Send_to_Tmux("bundle exec cucumber " . a:filename . "\n")
+    :edit
   elseif match(a:filename, '_test\.rb$') != -1
-    exec ":!ruby -Itest " . a:filename
+    :call Send_to_Tmux("bundle exec ruby -Itest -Ilib " . a:filename . "\n")
+    :edit
   else
     if filereadable("Gemfile")
-      exec ":!bundle exec rspec --color " . a:filename
+      :call Send_to_Tmux("bundle exec rspec --color " . a:filename . "\n")
+      :edit
     else
-      exec ":!rspec --color " . a:filename
+      :call Send_to_Tmux("rspec --color " . a:filename . "\n")
+      :edit
     end
   end
 endfunction
@@ -246,6 +258,7 @@ function! RunTestFile(...)
 endfunction
 
 function! RunNearestTest()
+  echo %
   let spec_line_number = line('.')
   call RunTestFile(":" . spec_line_number . " -b")
 endfunction
@@ -253,8 +266,3 @@ endfunction
 " run test runner
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
-
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
