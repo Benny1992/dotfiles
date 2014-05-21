@@ -219,17 +219,21 @@ function! RunTests(filename)
   :w
   :silent !clear
   if match(a:filename, '\.feature$') != -1
-    :call Send_to_Tmux("bundle exec cucumber " . a:filename . "\n")
+    " :call Send_to_Tmux("bundle exec cucumber " . a:filename . "\n")
+    :exec ":!bundle exec cucumber " . a:filename . "\n"
     :edit
   elseif match(a:filename, '_test\.rb$') != -1
-    :call Send_to_Tmux("bundle exec ruby -Itest -Ilib " . a:filename . "\n")
+    " :call Send_to_Tmux("bundle exec ruby -Itest -Ilib " . a:filename . "\n")
+    :exec ":!bundle exec ruby -Itest -Ilib " . a:filename . "\n"
     :edit
   else
     if filereadable("Gemfile")
-      :call Send_to_Tmux("bundle exec rspec --color " . a:filename . "\n")
+      " :call Send_to_Tmux("bundle exec rspec --color " . a:filename . "\n")
+      :exec ":!bundle exec rspec --color " . a:filename . "\n"
       :edit
     else
-      :call Send_to_Tmux("rspec --color " . a:filename . "\n")
+      " :call Send_to_Tmux("rspec --color " . a:filename . "\n")
+      :exec ":!rspec --color " . a:filename . "\n"
       :edit
     end
   end
