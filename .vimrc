@@ -30,6 +30,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'jgdavey/tslime.vim'
+Plugin 'travitch/hasksyn'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -54,7 +55,7 @@ set cursorline                    " highlight current line
 set cursorcolumn
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
-set mouse=a                       " enable mouse support
+" set mouse=a                       " enable mouse support
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
 set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
@@ -219,21 +220,20 @@ function! RunTests(filename)
   :w
   :silent !clear
   if match(a:filename, '\.feature$') != -1
-    " :call Send_to_Tmux("bundle exec cucumber " . a:filename . "\n")
-    :exec ":!bundle exec cucumber " . a:filename . "\n"
+    :exec ":silent !echo 'bundle exec cucumber " . a:filename . "' > test-commands \n"
+    :redraw!
     :edit
   elseif match(a:filename, '_test\.rb$') != -1
-    " :call Send_to_Tmux("bundle exec ruby -Itest -Ilib " . a:filename . "\n")
-    :exec ":!bundle exec ruby -Itest -Ilib " . a:filename . "\n"
+    :exec ":silent !echo 'bundle exec ruby -Itest:lib " . a:filename . "' > test-commands \n"
+    :redraw!
     :edit
   else
     if filereadable("Gemfile")
-      " :call Send_to_Tmux("bundle exec rspec --color " . a:filename . "\n")
-      :exec ":!bundle exec rspec --color " . a:filename . "\n"
+      :exec ":silent !echo 'bundle exec rspec --color " . a:filename . "' > test-commands \n"
+      :redraw!
       :edit
     else
-      " :call Send_to_Tmux("rspec --color " . a:filename . "\n")
-      :exec ":!rspec --color " . a:filename . "\n"
+      :exec ":silent !echo 'rspec --color " . a:filename . "' > test-commands \n"
       :edit
     end
   end
