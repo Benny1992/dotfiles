@@ -42,8 +42,9 @@ Plugin 'travitch/hasksyn'
 syntax on                         " show syntax highlighting
 filetype plugin indent on
 set autoindent                    " set auto indent
-set ts=2                          " set indent to 2 spaces
-set shiftwidth=2
+set ts=4                          " set indent to 2 spaces
+set sw=4
+set sts=4
 set expandtab                     " use spaces, not tab characters
 set nocompatible                  " don't need to be compatible with old vim
 set relativenumber                " show relative line numbers
@@ -276,3 +277,12 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 
 set t_Co=256
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+
+" autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+" autocmd Filetype c setlocal ts=4 sts=4 sw=4
+" autocmd Filetype cpp setlocal ts=4 sts=4 sw=4
+" autocmd Filetype d setlocal ts=4 sts=4 sw=4
+" autocmd Filetype go setlocal ts=4 sts=4 sw=4
+
