@@ -220,20 +220,24 @@ function! RunTests(filename)
   :w
   :silent !clear
   if match(a:filename, '\.feature$') != -1
-    :exec ":silent !echo 'bundle exec cucumber " . a:filename . "' > test-commands \n"
-    :redraw!
+    :exec ":!bundle exec cucumber " . a:filename . "\n"
+    " :exec ":silent !echo 'bundle exec cucumber " . a:filename . "' > test-commands \n"
+    " :redraw!
     :edit
   elseif match(a:filename, '_test\.rb$') != -1
-    :exec ":silent !echo 'bundle exec ruby -Itest:lib " . a:filename . "' > test-commands \n"
-    :redraw!
+    :exec ":!bundle exec ruby -Itest:lib " . a:filename . "\n"
+    " :exec ":silent !echo 'bundle exec ruby -Itest:lib " . a:filename . "' > test-commands \n"
+    " :redraw!
     :edit
   else
     if filereadable("Gemfile")
-      :exec ":silent !echo 'bundle exec rspec --color " . a:filename . "' > test-commands \n"
-      :redraw!
+      :exec ":bundle exec rspec --color " . a:filename . "\n"
+      " :exec ":silent !echo 'bundle exec rspec --color " . a:filename . "' > test-commands \n"
+      " :redraw!
       :edit
     else
-      :exec ":silent !echo 'rspec --color " . a:filename . "' > test-commands \n"
+      :exec ":!'rspec --color " . a:filename . "\n"
+      " :exec ":silent !echo 'rspec --color " . a:filename . "' > test-commands \n"
       :edit
     end
   end
