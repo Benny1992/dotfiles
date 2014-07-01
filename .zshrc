@@ -11,6 +11,7 @@ ZSH_THEME="benny"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias be="bundle exec"
+alias irssi='TERM=screen-256color irssi'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -53,7 +54,11 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export GOPATH="$HOME/Web/GoWorkspace"
+
 export PATH="/usr/local/ldc2/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH=$PATH:$GOPATH/bin
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -69,7 +74,10 @@ export PATH="/usr/local/ldc2/bin:$PATH"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
+export TERM="screen-256color"
+# export TERM="gnome-256color"
+# export TERM=screen-256color-bce
 
 # Always work in a tmux session if tmux is installed
 if which tmux 2>&1 >/dev/null; then
@@ -81,3 +89,24 @@ source /usr/local/share/chruby/chruby.sh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+alias 'glg' = pretty_git_log()
+
+pretty_git_log() {
+    git log --graph --pretty="tformat:${FORMAT}" $* |
+        # Replace (2 years ago) with (2 years)
+        sed -Ee 's/(^[^<]*) ago\)/\1)/' |
+        # Replace (2 years, 5 months) with (2 years)
+        sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?\)/\1)/' |
+        # Line columns up based on } delimiter
+        column -s '}' -t |
+        # Color merge commits specially
+        sed -Ee "s/(Merge (branch|remote-tracking branch|pull request) .*$)/$(printf $ANSI_RED)\1$(printf $ANSI_RESET)/" |
+        # Page only if we're asked to.
+        if [ -n "$GIT_NO_PAGER" ]; then
+            cat
+        else
+            # Page only if needed.
+            less --quit-if-one-screen --no-init --RAW-CONTROL-CHARS --chop-long-lines
+        fi
+}
