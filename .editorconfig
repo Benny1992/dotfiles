@@ -1,0 +1,33 @@
+; This file is for unifying the coding style for different editors and IDEs.
+; More information at http://EditorConfig.org
+
+root = true
+
+[*]
+end_of_line = lf
+indent_style = spaces
+trim_trailing_whitespace = true
+
+; RUBY ( Ruby Ragel files has to be configured explicitly in project folders )
+[*.{rb, haml, slim}]
+indent_size  = 2
+
+[*.html.erb]
+indent_size  = 2
+
+[Rakefile]
+indent_size = 2
+
+[Gemfile*]
+indent_size = 2
+
+[config.ru]
+indent_size = 2
+
+; C, Go, D, Java, Ragel
+[*.{h, c, java, go, d, rl}]
+indent_size = 4
+
+; Haskell
+[*.hs]
+indent_size = 2
