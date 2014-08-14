@@ -31,6 +31,13 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'travitch/hasksyn'
+Plugin 'arsenerei/vim-ragel'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'wting/rust.vim'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -75,18 +82,23 @@ set fileencoding=utf-8            " The encoding written to file.
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 " set dark background and color scheme
+syntax enable
 set background=dark
-colorscheme railscasts
-" colorscheme monokai
+" colorscheme solarized
+" colorscheme railscasts
+colorscheme monokai
 " colorscheme base16-railscasts
+
+" :highlight Normal ctermbg=9
 
 " set up some custom colors
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
-highlight ColorColumn  ctermbg=237
+highlight ColorColumn  ctermbg=255
 highlight LineNr       ctermbg=236 ctermfg=240
 highlight CursorLineNr ctermbg=236 ctermfg=240
-highlight CursorLine   ctermbg=236
+highlight CursorLine   ctermbg=11
+highlight CursorColumn ctermbg=11
 highlight StatusLineNC ctermbg=238 ctermfg=0
 highlight StatusLine   ctermbg=240 ctermfg=12
 highlight IncSearch    ctermbg=0   ctermfg=3
@@ -277,8 +289,11 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 
 set t_Co=256
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+
+" autocmd BufNewFile,BufRead *.html.erb set filetype=html
+
+" autocmd Filetype html setlocal ts=2 sts=2 sw=2
+" autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 " autocmd Filetype c setlocal ts=4 sts=4 sw=4
@@ -286,3 +301,10 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " autocmd Filetype d setlocal ts=4 sts=4 sw=4
 " autocmd Filetype go setlocal ts=4 sts=4 sw=4
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"

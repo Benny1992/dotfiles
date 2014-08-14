@@ -5,7 +5,12 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="benny"
+# ZSH_THEME="benny"
+# ZSH_THEME="avit"
+# ZSH_THEME="norm"
+# ZSH_THEME="cloud"
+# ZSH_THEME="garyblessington"
+ZSH_THEME="lambda"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -54,11 +59,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export GOPATH="$HOME/Web/GoWorkspace"
 
 export PATH="/usr/local/ldc2/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
-export PATH=$PATH:$GOPATH/bin
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
