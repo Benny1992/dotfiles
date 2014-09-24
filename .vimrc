@@ -72,7 +72,7 @@ set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set list listchars=tab:»·,trail:· " show extra space characters
 set nofoldenable                  " disable code folding
-set clipboard=unnamed             " use the system clipboard
+set clipboard=unnamedplus             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set encoding=utf-8                " The encoding displayed.
@@ -91,6 +91,8 @@ colorscheme monokai
 " colorscheme base16-railscasts
 
 " :highlight Normal ctermbg=9
+
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " set up some custom colors
 highlight clear SignColumn
@@ -291,17 +293,6 @@ map <leader>T :call RunNearestTest()<cr>
 
 set t_Co=256
 
-" autocmd BufNewFile,BufRead *.html.erb set filetype=html
-
-" autocmd Filetype html setlocal ts=2 sts=2 sw=2
-" autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-
-" autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
-" autocmd Filetype c setlocal ts=4 sts=4 sw=4
-" autocmd Filetype cpp setlocal ts=4 sts=4 sw=4
-" autocmd Filetype d setlocal ts=4 sts=4 sw=4
-" autocmd Filetype go setlocal ts=4 sts=4 sw=4
-
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -310,5 +301,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_php_checkers = ['phpcs']
