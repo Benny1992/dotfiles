@@ -116,6 +116,4 @@ fi
 source /usr/local/share/chruby/chruby.sh
 source ~/.aliases
 
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux
-fi
+[ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
