@@ -112,3 +112,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+source /usr/local/share/chruby/chruby.sh
+source ~/.aliases
+
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux
+fi

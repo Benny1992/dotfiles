@@ -7,10 +7,10 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="benny"
 # ZSH_THEME="avit"
-# ZSH_THEME="norm"
+ZSH_THEME="norm"
 # ZSH_THEME="cloud"
 # ZSH_THEME="garyblessington"
-ZSH_THEME="lambda"
+# ZSH_THEME="lambda"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -60,8 +60,13 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export SCALA_HOME="/home/benny/Web/scala"
+
 export PATH="/usr/local/ldc2/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
+export PATH="$SCALA_HOME/bin:$PATH"
+export Path="/usr/local/activator/activator:$PATH"
+
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -113,3 +118,9 @@ pretty_git_log() {
             less --quit-if-one-screen --no-init --RAW-CONTROL-CHARS --chop-long-lines
         fi
 }
+
+
+# BEGIN Ruboto setup
+source ~/.rubotorc
+# END Ruboto setup
+
