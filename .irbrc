@@ -11,3 +11,12 @@ def time(&block)
   puts "It took: #{timing}"
   result
 end
+
+# IRB.conf[:PROMPT][:MY_PROMPT] = { # name of prompt mode
+#   :PROMPT_I => '--> ', # normal prompt
+#   :PROMPT_S => '--" ', # prompt for continuing strings
+#   :PROMPT_C => '--+ ', # prompt for continuing statement
+#   :RETURN => "  ==> %s\n" # format to return value
+# }
+#
+# IRB.conf[:PROMPT_MODE] = :MY_PROMPT
