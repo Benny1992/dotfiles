@@ -20,3 +20,5 @@ end
 # }
 #
 # IRB.conf[:PROMPT_MODE] = :MY_PROMPT
+
+IRB.conf[:SAVE_HISTORY] = 50
