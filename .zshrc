@@ -7,16 +7,17 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="benny"
 # ZSH_THEME="avit"
-ZSH_THEME="norm"
+# ZSH_THEME="norm"
 # ZSH_THEME="cloud"
 # ZSH_THEME="garyblessington"
 # ZSH_THEME="lambda"
+ZSH_THEME="robbyrussell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias be="bundle exec"
-alias irssi='TERM=screen-256color irssi'
+# alias be="bundle exec"
+# alias irssi='TERM=screen-256color irssi'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -88,11 +89,11 @@ export TERM="screen-256color"
 # export TERM=screen-256color-bce
 
 # Always work in a tmux session if tmux is installed
-if which tmux 2>&1 >/dev/null; then
-tmux attach -t hack || tmux new -s hack
-fi
+[ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
+
 
 source /usr/local/share/chruby/chruby.sh
+source /home/benny/.aliases
 
 
 ### Added by the Heroku Toolbelt
@@ -123,4 +124,3 @@ pretty_git_log() {
 # BEGIN Ruboto setup
 source ~/.rubotorc
 # END Ruboto setup
-

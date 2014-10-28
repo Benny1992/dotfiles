@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Using fish as shell breaks Vundle -> set shell
-" set shell=/bin/bash
+set shell=/bin/bash
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
@@ -39,6 +39,9 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'morhetz/gruvbox'
+Plugin 'w0ng/vim-hybrid'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -77,6 +80,7 @@ set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set encoding=utf-8                " The encoding displayed.
 set fileencoding=utf-8            " The encoding written to file.
+set synmaxcol=800                 " don't highlight lines longer than 800
 " runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 " put useful info in status bar
@@ -87,8 +91,10 @@ syntax enable
 set background=dark
 " colorscheme solarized
 " colorscheme railscasts
-colorscheme monokai
+" colorscheme monokai
 " colorscheme base16-railscasts
+" colorscheme gruvbox
+colorscheme hybrid
 
 " :highlight Normal ctermbg=9
 
@@ -96,26 +102,25 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " set up some custom colors
 highlight clear SignColumn
-highlight VertSplit    ctermbg=236
-highlight ColorColumn  ctermbg=255
-highlight LineNr       ctermbg=236 ctermfg=240
-highlight CursorLineNr ctermbg=236 ctermfg=240
-highlight CursorLine   ctermbg=11
-highlight CursorColumn ctermbg=11
-highlight StatusLineNC ctermbg=238 ctermfg=0
-highlight StatusLine   ctermbg=240 ctermfg=12
-highlight IncSearch    ctermbg=0   ctermfg=3
-highlight Search       ctermbg=0   ctermfg=9
-highlight Visual       ctermbg=3   ctermfg=0
-highlight Pmenu        ctermbg=240 ctermfg=12
-highlight PmenuSel     ctermbg=0   ctermfg=3
-highlight SpellBad     ctermbg=0   ctermfg=1
-
-" highlight the status bar when in insert mode
-if version >= 700
-  au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
-  au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
-endif
+" highlight VertSplit    ctermbg=236
+" highlight ColorColumn  ctermbg=255
+" highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermfg=64 cterm=bold
+" highlight CursorLine   ctermbg=11
+" highlight CursorColumn ctermbg=11
+highlight StatusLine ctermfg=235 ctermbg=2
+" highlight StatusLine   ctermbg=240 ctermfg=12
+" highlight IncSearch    ctermbg=0   ctermfg=3
+" highlight Search       ctermbg=0   ctermfg=9
+" highlight Visual       ctermbg=3   ctermfg=0
+" highlight Pmenu        ctermbg=240 ctermfg=12
+" highlight PmenuSel     ctermbg=0   ctermfg=3
+" highlight SpellBad     ctermbg=0   ctermfg=1
+"
+" " highlight the status bar when in insert mode
+" if version >= 700
+"   au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+" endif
 
 " set leader key to comma
 let mapleader = ","
@@ -245,6 +250,9 @@ function! RunTests(filename)
     " :exec ":silent !echo 'bundle exec ruby -Itest:lib " . a:filename . "' > test-commands \n"
     " :redraw!
     :edit
+  elseif match(a:filename, '_spec\.rb$') != -1
+    :exec ":!bundle exec ruby -Ispec:lib " . a:filename . "\n"
+    :edit
   else
     if filereadable("Gemfile")
       :exec ":bundle exec rspec --color " . a:filename . "\n"
@@ -303,4 +311,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_php_checkers = ['phpcs']
+let g:syntastic_php_checkers = ['phpcs', 'php']
+
+let g:gitgutter_enabled = 0
+map <leader>git :GitGutterToggle<cr>
