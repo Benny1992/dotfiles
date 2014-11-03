@@ -90,20 +90,14 @@ set synmaxcol=800                 " don't highlight lines longer than 800
 " put useful info in status bar
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
-" Default color scheme
 syntax enable
 let base16colorspace=256 " Access colors present in 256 colorspace
 set t_Co=256 " 256 color mode
 set background=dark
-" colorscheme base16-ocean
-" colorscheme solarized
-" colorscheme railscasts
-" colorscheme monokai
-" colorscheme base16-default
-" colorscheme gruvbox
-colorscheme hybrid
 
-" :highlight Normal ctermbg=9
+" colorscheme base16-railscasts
+" colorscheme monokai
+colorscheme hybrid
 
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
@@ -117,7 +111,7 @@ highlight CursorLineNr ctermfg=2 cterm=bold
 " highlight CursorLine   ctermbg=11
 " highlight CursorColumn ctermbg=11
 " highlight StatusLine ctermfg=235 ctermbg=2
-" highlight StatusLine   ctermbg=240 ctermfg=12
+highlight StatusLine   ctermbg=235 ctermfg=2
 " highlight IncSearch    ctermbg=0   ctermfg=3
 " highlight Search       ctermbg=0   ctermfg=9
 " highlight Visual       ctermbg=3   ctermfg=0
