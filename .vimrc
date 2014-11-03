@@ -1,3 +1,6 @@
+scriptencoding utf-8
+set encoding=utf-8
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -42,6 +45,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'chriskempson/base16-vim'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -86,13 +90,16 @@ set synmaxcol=800                 " don't highlight lines longer than 800
 " put useful info in status bar
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
-" set dark background and color scheme
+" Default color scheme
 syntax enable
+let base16colorspace=256 " Access colors present in 256 colorspace
+set t_Co=256 " 256 color mode
 set background=dark
+" colorscheme base16-ocean
 " colorscheme solarized
 " colorscheme railscasts
 " colorscheme monokai
-" colorscheme base16-railscasts
+" colorscheme base16-default
 " colorscheme gruvbox
 colorscheme hybrid
 
@@ -102,13 +109,14 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " set up some custom colors
 highlight clear SignColumn
+" highlight Normal ctermbg=235
 " highlight VertSplit    ctermbg=236
 " highlight ColorColumn  ctermbg=255
 " highlight LineNr       ctermbg=236 ctermfg=240
-highlight CursorLineNr ctermfg=64 cterm=bold
+highlight CursorLineNr ctermfg=2 cterm=bold
 " highlight CursorLine   ctermbg=11
 " highlight CursorColumn ctermbg=11
-highlight StatusLine ctermfg=235 ctermbg=2
+" highlight StatusLine ctermfg=235 ctermbg=2
 " highlight StatusLine   ctermbg=240 ctermfg=12
 " highlight IncSearch    ctermbg=0   ctermfg=3
 " highlight Search       ctermbg=0   ctermfg=9
@@ -299,7 +307,6 @@ endfunction
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 
-set t_Co=256
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -312,6 +319,9 @@ let g:UltiSnipsEditSplit="vertical"
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_php_checkers = ['phpcs', 'php']
+
+hi SpellBad ctermfg=0 ctermbg=2
+hi SpellCap ctermfg=0 ctermbg=2
 
 let g:gitgutter_enabled = 0
 map <leader>git :GitGutterToggle<cr>
