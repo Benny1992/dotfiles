@@ -46,6 +46,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'chriskempson/base16-vim'
+Plugin 'guns/jellyx.vim'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -95,9 +96,10 @@ let base16colorspace=256 " Access colors present in 256 colorspace
 set t_Co=256 " 256 color mode
 set background=dark
 
-" colorscheme base16-railscasts
 " colorscheme monokai
-colorscheme hybrid
+" colorscheme hybrid
+colorscheme jellyx
+" colorscheme base16-railscasts
 
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
@@ -105,13 +107,12 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 highlight clear SignColumn
 " highlight Normal ctermbg=235
 " highlight VertSplit    ctermbg=236
-" highlight ColorColumn  ctermbg=255
+highlight ColorColumn  ctermbg=235
 " highlight LineNr       ctermbg=236 ctermfg=240
 highlight CursorLineNr ctermfg=2 cterm=bold
-" highlight CursorLine   ctermbg=11
-" highlight CursorColumn ctermbg=11
-" highlight StatusLine ctermfg=235 ctermbg=2
-highlight StatusLine   ctermbg=235 ctermfg=2
+highlight CursorLine   ctermbg=235
+highlight CursorColumn ctermbg=235
+highlight StatusLine ctermfg=235 ctermbg=2
 " highlight IncSearch    ctermbg=0   ctermfg=3
 " highlight Search       ctermbg=0   ctermfg=9
 " highlight Visual       ctermbg=3   ctermfg=0
