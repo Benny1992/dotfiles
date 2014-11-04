@@ -113,6 +113,8 @@ highlight CursorLineNr ctermfg=2 cterm=bold
 highlight CursorLine   ctermbg=235
 highlight CursorColumn ctermbg=235
 highlight StatusLine ctermfg=235 ctermbg=2
+highlight SpecialKey ctermbg=green ctermfg=white
+highlight ErrorMsg ctermbg=red
 " highlight IncSearch    ctermbg=0   ctermfg=3
 " highlight Search       ctermbg=0   ctermfg=9
 " highlight Visual       ctermbg=3   ctermfg=0
