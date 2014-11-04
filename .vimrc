@@ -109,7 +109,7 @@ highlight clear SignColumn
 " highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=235
 " highlight LineNr       ctermbg=236 ctermfg=240
-highlight CursorLineNr ctermfg=2 cterm=bold
+highlight CursorLineNr ctermfg=2 cterm=bold ctermbg=235
 highlight CursorLine   ctermbg=235
 highlight CursorColumn ctermbg=235
 highlight StatusLine ctermfg=235 ctermbg=2
