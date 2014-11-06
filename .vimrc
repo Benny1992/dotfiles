@@ -103,6 +103,8 @@ colorscheme jellyx
 
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
+syn match Todo "@todo" "@TODO" TODO todo contained
+
 " set up some custom colors
 highlight clear SignColumn
 " highlight Normal ctermbg=235
@@ -116,6 +118,8 @@ highlight StatusLine ctermfg=235 ctermbg=2
 highlight SpecialKey ctermbg=green ctermfg=white
 highlight Search ctermfg=green
 highlight ErrorMsg ctermbg=red
+highlight Todo ctermfg=2
+" highlight yardTodo ctermfg=2
 " highlight IncSearch    ctermbg=0   ctermfg=3
 " highlight Search       ctermbg=0   ctermfg=9
 " highlight Visual       ctermbg=3   ctermfg=0
