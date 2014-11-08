@@ -47,6 +47,8 @@ Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'chriskempson/base16-vim'
 Plugin 'guns/jellyx.vim'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -57,6 +59,7 @@ Plugin 'guns/jellyx.vim'
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
+
 set autoindent                    " set auto indent
 set ts=4                          " set indent to 2 spaces
 set sw=4
@@ -86,13 +89,13 @@ set wildmode=list:longest,full
 set encoding=utf-8                " The encoding displayed.
 set fileencoding=utf-8            " The encoding written to file.
 set synmaxcol=800                 " don't highlight lines longer than 800
+set noshowmode
 " runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 " put useful info in status bar
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 syntax enable
-let base16colorspace=256 " Access colors present in 256 colorspace
 set t_Co=256 " 256 color mode
 set background=dark
 
@@ -110,14 +113,14 @@ highlight clear SignColumn
 " highlight Normal ctermbg=235
 " highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=235
-" highlight LineNr       ctermbg=236 ctermfg=240
+highlight LineNr       ctermbg=236 ctermfg=240
 highlight CursorLineNr ctermfg=2 cterm=bold ctermbg=235
 highlight CursorLine   ctermbg=235
 highlight CursorColumn ctermbg=235
 highlight StatusLine ctermfg=235 ctermbg=2
 highlight SpecialKey ctermbg=green ctermfg=white
 highlight Search ctermfg=green
-highlight ErrorMsg ctermbg=red
+highlight ErrorMsg ctermbg=red ctermfg=white
 highlight Todo ctermfg=2
 " highlight yardTodo ctermfg=2
 " highlight IncSearch    ctermbg=0   ctermfg=3
@@ -125,12 +128,6 @@ highlight Todo ctermfg=2
 " highlight Visual       ctermbg=3   ctermfg=0
 " highlight Pmenu        ctermbg=240 ctermfg=12
 " highlight PmenuSel     ctermbg=0   ctermfg=3
-" highlight SpellBad     ctermbg=0   ctermfg=1
-"
-" " highlight the status bar when in insert mode
-" if version >= 700
-"   au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
-" endif
 
 " set leader key to comma
 let mapleader = ","
@@ -327,3 +324,7 @@ hi SpellCap ctermfg=0 ctermbg=2
 
 let g:gitgutter_enabled = 0
 map <leader>git :GitGutterToggle<cr>
+
+let g:airline_powerline_fonts=1
+let g:airline_theme='bubblegum'
+let g:airline#extensions#tabline#enabled = 1

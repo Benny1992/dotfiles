@@ -13,8 +13,12 @@ alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
 
-alias tmux='TERM=xterm-256color tmux'
+alias tmux='TERM=screen-256color tmux -2'
 alias grep='grep --color=auto'
 alias svi='sudo vi'
 alias cd..='cd ..'
 alias apt-get='sudo apt-get'
+alias vim='vim -p'
+
+alias be='bundle exec'
+alias changelog='git log --format="%h %ai %an %s"'
