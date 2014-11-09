@@ -83,14 +83,10 @@ set background=dark
 " colorscheme jellyx
 colorscheme base16-railscasts
 
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-
 syn match Todo "@todo" "@TODO" TODO todo contained
 
 " set up some custom colors
 highlight clear SignColumn
-" highlight Normal ctermbg=235
-" highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=235
 highlight LineNr       ctermbg=236 ctermfg=240
 highlight CursorLineNr ctermfg=2 cterm=bold ctermbg=235
@@ -101,12 +97,6 @@ highlight SpecialKey ctermbg=green ctermfg=white
 highlight Search ctermfg=green
 highlight ErrorMsg ctermbg=red ctermfg=white
 highlight Todo ctermfg=2 ctermbg=235 cterm=bold
-" highlight yardTodo ctermfg=2
-" highlight IncSearch    ctermbg=0   ctermfg=3
-" highlight Search       ctermbg=0   ctermfg=9
-" highlight Visual       ctermbg=3   ctermfg=0
-" highlight Pmenu        ctermbg=240 ctermfg=12
-" highlight PmenuSel     ctermbg=0   ctermfg=3
 
 " set leader key to comma
 let mapleader = ","
