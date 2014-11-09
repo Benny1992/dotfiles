@@ -24,8 +24,8 @@ indent_size = 2
 [config.ru]
 indent_size = 2
 
-; C, Go, D, Java, Ragel
-[*.{h, c, java, go, d, rl}]
+; C, Go, D, Java, Ragel, Rust
+[*.{h, c, java, go, d, rl, rs}]
 indent_size = 4
 
 ; Haskell

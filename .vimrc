@@ -1,25 +1,14 @@
 scriptencoding utf-8
 set encoding=utf-8
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 " Using fish as shell breaks Vundle -> set shell
 set shell=/bin/bash
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-" alternatively, pass a path where Vundle should install bundles
-"let path = '~/some/path/here'
-"call vundle#rc(path)
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
-" The following are examples of different formats supported.
-" Keep bundle commands between here and filetype plugin indent on.
-" scripts on GitHub repos
 Plugin 'tpope/vim-rails.git'
 Plugin 'https://github.com/plasticboy/vim-markdown.git'
 Plugin 'kien/ctrlp.vim'
@@ -37,9 +26,7 @@ Plugin 'travitch/hasksyn'
 Plugin 'arsenerei/vim-ragel'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'wting/rust.vim'
-" Track the engine.
 Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
@@ -49,13 +36,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'guns/jellyx.vim'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-" scripts from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Plugin 'FuzzyFinder'
+Plugin 'tmhedberg/matchit'
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
@@ -75,7 +56,6 @@ set cursorline                    " highlight current line
 set cursorcolumn
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
-" set mouse=a                       " enable mouse support
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
 set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
@@ -90,7 +70,6 @@ set encoding=utf-8                " The encoding displayed.
 set fileencoding=utf-8            " The encoding written to file.
 set synmaxcol=800                 " don't highlight lines longer than 800
 set noshowmode
-" runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 " put useful info in status bar
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
@@ -101,8 +80,8 @@ set background=dark
 
 " colorscheme monokai
 " colorscheme hybrid
-colorscheme jellyx
-" colorscheme base16-railscasts
+" colorscheme jellyx
+colorscheme base16-railscasts
 
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
@@ -121,7 +100,7 @@ highlight StatusLine ctermfg=235 ctermbg=2
 highlight SpecialKey ctermbg=green ctermfg=white
 highlight Search ctermfg=green
 highlight ErrorMsg ctermbg=red ctermfg=white
-highlight Todo ctermfg=2
+highlight Todo ctermfg=2 ctermbg=235 cterm=bold
 " highlight yardTodo ctermfg=2
 " highlight IncSearch    ctermbg=0   ctermfg=3
 " highlight Search       ctermbg=0   ctermfg=9
@@ -328,3 +307,4 @@ map <leader>git :GitGutterToggle<cr>
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
+set linespace=0

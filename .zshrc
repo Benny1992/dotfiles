@@ -7,11 +7,12 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="clean"
 # ZSH_THEME="avit"
-ZSH_THEME="norm"
+# ZSH_THEME="norm"
 # ZSH_THEME="cloud"
 # ZSH_THEME="garyblessington"
 # ZSH_THEME="lambda"
 # ZSH_THEME="robbyrussell"
+ZSH_THEME="benny"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -53,7 +54,7 @@ ZSH_THEME="norm"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv ruby golang django scala gem history history-substring-search nanoc)
+plugins=(git chruby ruby rails gem history history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,6 +66,7 @@ export SCALA_HOME="/home/benny/Web/scala"
 
 export PATH="/usr/local/ldc2/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
+export PATH="/home/benny/.local/bin:$PATH"
 export PATH="$SCALA_HOME/bin:$PATH"
 export Path="/usr/local/activator/activator:$PATH"
 
@@ -124,3 +126,10 @@ pretty_git_log() {
 # BEGIN Ruboto setup
 source ~/.rubotorc
 # END Ruboto setup
+
+# Show all 256 colors with color number
+function spectrum_ls() {
+  for code in {000..255}; do
+    print -P -- "$code: %F{$code}$ZSH_SPECTRUM_TEXT%f"
+  done
+}
