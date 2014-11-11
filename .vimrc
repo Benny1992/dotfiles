@@ -31,12 +31,10 @@ Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
-Plugin 'w0ng/vim-hybrid'
 Plugin 'chriskempson/base16-vim'
-Plugin 'guns/jellyx.vim'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'tmhedberg/matchit'
+Plugin 'mkitt/tabline.vim'
+Plugin 'itchyny/lightline.vim'
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
@@ -293,8 +291,8 @@ hi SpellCap ctermfg=0 ctermbg=2
 
 let g:gitgutter_enabled = 0
 map <leader>git :GitGutterToggle<cr>
-
-let g:airline_powerline_fonts=1
-let g:airline_theme='bubblegum'
-let g:airline#extensions#tabline#enabled = 1
 set linespace=0
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \}
