@@ -1,5 +1,6 @@
 alias ga='git add'
 alias gp='git push'
+alias gpm='git push origin master'
 alias gl='git l'
 alias gs='git s'
 alias gd='git diff'
