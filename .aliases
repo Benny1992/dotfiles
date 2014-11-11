@@ -1,7 +1,7 @@
 alias ga='git add'
 alias gp='git push'
 alias gl='git l'
-alias gs='git status'
+alias gs='git s'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gc='git commit'
