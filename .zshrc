@@ -54,7 +54,7 @@ ZSH_THEME="benny"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git chruby ruby rails gem history history-substring-search)
+plugins=(chruby ruby rails gem history history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,8 +91,8 @@ export Path="/usr/local/activator/activator:$PATH"
 # export TERM=screen-256color-bce
 
 # Always work in a tmux session if tmux is installed
-[ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
-
+[ -z "$TMUX" ] && export TERM=xterm-256color && tmux new -s hack
+# [ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
 
 source /usr/local/share/chruby/chruby.sh
 source /home/benny/.aliases
