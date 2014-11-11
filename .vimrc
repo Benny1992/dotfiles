@@ -92,7 +92,8 @@ highlight CursorLine   ctermbg=235
 highlight CursorColumn ctermbg=235
 highlight StatusLine ctermfg=235 ctermbg=2
 highlight SpecialKey ctermbg=green ctermfg=white
-highlight Search ctermfg=green
+" highlight Search ctermfg=green
+highlight Visual ctermfg=black
 highlight ErrorMsg ctermbg=red ctermfg=white
 highlight Todo ctermfg=2 ctermbg=235 cterm=bold
 
@@ -295,4 +296,4 @@ set linespace=0
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
-      \}
+      \ }
