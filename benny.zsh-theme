@@ -1,5 +1,5 @@
 PROMPT='%{$fg[blue]%}%c ➤ %{$reset_color%}'
-RPROMPT='%{$FG[150]%}%p $(git_prompt_info) $(chruby_prompt_info)%{$reset_color%}'
+RPROMPT='%{$fg_bold[green]%}%p $(git_prompt_info) $(chruby_prompt_info)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:"
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
