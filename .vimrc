@@ -10,34 +10,30 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 Plugin 'tpope/vim-rails.git'
-Plugin 'https://github.com/plasticboy/vim-markdown.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'https://github.com/avakhov/vim-yaml.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'vim-scripts/The-NERD-tree'
-Plugin 'groenewege/vim-less'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'travitch/hasksyn'
 Plugin 'arsenerei/vim-ragel'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'wting/rust.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'morhetz/gruvbox'
 Plugin 'chriskempson/base16-vim'
 Plugin 'tmhedberg/matchit'
 Plugin 'mkitt/tabline.vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'wting/rust.vim'
+Plugin 'groenewege/vim-less'
 
 syntax on                         " show syntax highlighting
-filetype plugin indent on
+filetype off
 
 set autoindent                    " set auto indent
 set ts=4                          " set indent to 2 spaces
@@ -292,8 +288,12 @@ hi SpellCap ctermfg=0 ctermbg=2
 
 let g:gitgutter_enabled = 0
 map <leader>git :GitGutterToggle<cr>
+map <leader>gb  :Gblame<cr>
+map <leader>gs  :Gstatus<cr>
 set linespace=0
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+
+au BufRead,BufNewFile *.rs setfiletype rust
