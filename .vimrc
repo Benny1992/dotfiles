@@ -34,6 +34,7 @@ Plugin 'groenewege/vim-less'
 
 syntax on                         " show syntax highlighting
 filetype off
+filetype indent on
 
 set autoindent                    " set auto indent
 set ts=4                          " set indent to 2 spaces
