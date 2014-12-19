@@ -54,7 +54,8 @@ ZSH_THEME="benny"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(chruby ruby rails gem history history-substring-search)
+plugins=(history chruby history-substring-search)
+# chruby ruby rails gem
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,13 +63,10 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export SCALA_HOME="/home/benny/Web/scala"
-
 export PATH="/usr/local/ldc2/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="/home/benny/.local/bin:$PATH"
-export PATH="$SCALA_HOME/bin:$PATH"
-export Path="/usr/local/activator/activator:$PATH"
+export PATH="/home/benny/.cabal/bin:$PATH"
 
 
 # # Preferred editor for local and remote sessions
@@ -91,10 +89,9 @@ export Path="/usr/local/activator/activator:$PATH"
 # export TERM=screen-256color-bce
 
 # Always work in a tmux session if tmux is installed
-[ -z "$TMUX" ] && export TERM=xterm-256color && tmux new -s hack
-# [ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
+# [ -z "$TMUX" ] && export TERM=xterm-256color && tmux new -s hack
 
-source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/gem_home/gem_home.sh
 source /home/benny/.aliases
 
 
