@@ -13,14 +13,14 @@ myManagementHooks = [
   ]
 
 main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
+    -- xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> manageHook defaultConfig <+> composeAll myManagementHooks
         , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
-        , logHook = dynamicLogWithPP xmobarPP
-                        { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "green" "" . shorten 50
-                        }
+        -- , logHook = dynamicLogWithPP xmobarPP
+                        -- { ppOutput = hPutStrLn xmproc
+                        -- , ppTitle = xmobarColor "green" "" . shorten 50
+                        -- }
         , modMask = mod4Mask
         } `additionalKeys`
                 [ ((0 , xF86XK_AudioLowerVolume), spawn "amixer set Master on && amixer set Headphone on && amixer set Master 2-"),

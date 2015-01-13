@@ -31,6 +31,7 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'wting/rust.vim'
 Plugin 'groenewege/vim-less'
+Plugin 'ahw/vim-hooks'
 
 syntax on                         " show syntax highlighting
 filetype off
@@ -66,6 +67,19 @@ set fileencoding=utf-8            " The encoding written to file.
 set synmaxcol=800                 " don't highlight lines longer than 800
 set noshowmode
 
+noremap <ScrollWheelUp>      <nop>
+noremap <S-ScrollWheelUp>    <nop>
+noremap <C-ScrollWheelUp>    <nop>
+noremap <ScrollWheelDown>    <nop>
+noremap <S-ScrollWheelDown>  <nop>
+noremap <C-ScrollWheelDown>  <nop>
+noremap <ScrollWheelLeft>    <nop>
+noremap <S-ScrollWheelLeft>  <nop>
+noremap <C-ScrollWheelLeft>  <nop>
+noremap <ScrollWheelRight>   <nop>
+noremap <S-ScrollWheelRight> <nop>
+noremap <C-ScrollWheelRight> <nop>
+
 " put useful info in status bar
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
@@ -76,7 +90,7 @@ set background=dark
 " colorscheme monokai
 " colorscheme hybrid
 " colorscheme jellyx
-colorscheme base16-railscasts
+colorscheme base16-twilight
 
 syn match Todo "@todo" "@TODO" TODO todo contained
 

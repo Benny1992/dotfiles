@@ -1,0 +1,2 @@
+synclient VertTwoFingerScroll=1
+
