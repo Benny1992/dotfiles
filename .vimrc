@@ -4,8 +4,12 @@ set encoding=utf-8
 " Using fish as shell breaks Vundle -> set shell
 set shell=/bin/bash
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
@@ -33,6 +37,8 @@ Plugin 'wting/rust.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'evidens/vim-twig'
 " Plugin 'ahw/vim-hooks'
+
+call vundle#end()
 
 syntax on                         " show syntax highlighting
 filetype off
@@ -92,6 +98,7 @@ set background=dark
 " colorscheme hybrid
 " colorscheme jellyx
 colorscheme base16-twilight
+" colorscheme base16-default
 
 syn match Todo "@todo" "@TODO" TODO todo contained
 
