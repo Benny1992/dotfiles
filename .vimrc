@@ -31,7 +31,8 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'wting/rust.vim'
 Plugin 'groenewege/vim-less'
-Plugin 'ahw/vim-hooks'
+Plugin 'evidens/vim-twig'
+" Plugin 'ahw/vim-hooks'
 
 syntax on                         " show syntax highlighting
 filetype off
@@ -220,6 +221,13 @@ noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+imap <S-Up> <nop>
+imap <S-Down> <nop>
+vmap <S-Up> <nop>
+vmap <S-Down> <nop>
+nmap <S-Up> <nop>
+nmap <S-Down> <nop>
+imap ^ <Esc>
 
 " run specs with ',t' via Gary Bernhardt
 function! RunTests(filename)
