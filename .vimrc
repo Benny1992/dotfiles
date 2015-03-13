@@ -45,9 +45,9 @@ filetype off
 filetype indent on
 
 set autoindent                    " set auto indent
-set ts=4                          " set indent to 2 spaces
-set sw=4
-set sts=4
+set ts=2                          " set indent to 2 spaces
+set sw=2
+set sts=2
 set expandtab                     " use spaces, not tab characters
 set nocompatible                  " don't need to be compatible with old vim
 set relativenumber                " show relative line numbers
@@ -97,8 +97,8 @@ set background=dark
 " colorscheme monokai
 " colorscheme hybrid
 " colorscheme jellyx
-colorscheme base16-twilight
-" colorscheme base16-default
+" colorscheme base16-twilight
+colorscheme base16-railscasts
 
 syn match Todo "@todo" "@TODO" TODO todo contained
 
