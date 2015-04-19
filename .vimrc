@@ -156,10 +156,10 @@ map <leader>x :!clear &&
 let g:gist_open_browser_after_post = 1
 
 " map Silver Searcher
-map <leader>a :Ag!<space>
+" map <leader>a :Ag!<space>
 
 " search for word under cursor with Silver Searcher
-map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
+" map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
 
 " clear the command line and search highlighting
 noremap <C-l> :nohlsearch<CR>
@@ -243,28 +243,21 @@ function! RunTests(filename)
   :silent !clear
   if match(a:filename, '\.feature$') != -1
     :exec ":!bundle exec cucumber " . a:filename . "\n"
-    " :exec ":silent !echo 'bundle exec cucumber " . a:filename . "' > test-commands \n"
-    " :redraw!
     :edit
   elseif match(a:filename, '_test\.rb$') != -1
     :exec ":!bundle exec ruby -Itest:lib " . a:filename . "\n"
-    " :exec ":silent !echo 'bundle exec ruby -Itest:lib " . a:filename . "' > test-commands \n"
-    " :redraw!
     :edit
   elseif match(a:filename, '_spec\.rb$') != -1
-    :exec ":!bundle exec ruby -Ispec:lib " . a:filename . "\n"
+    :exec ":!bundle exec rspec " . a:filename . "\n"
     :edit
-  else
-    if filereadable("Gemfile")
-      :exec ":bundle exec rspec --color " . a:filename . "\n"
-      " :exec ":silent !echo 'bundle exec rspec --color " . a:filename . "' > test-commands \n"
-      " :redraw!
-      :edit
-    else
-      :exec ":!'rspec --color " . a:filename . "\n"
-      " :exec ":silent !echo 'rspec --color " . a:filename . "' > test-commands \n"
-      :edit
-    end
+  " else
+  "   if filereadable("Gemfile")
+  "     :exec ":bundle exec rspec --color " . a:filename . "\n"
+  "     :edit
+  "   else
+  "     :exec ":!'rspec --color " . a:filename . "\n"
+  "     :edit
+  "   end
   end
 endfunction
 
@@ -321,6 +314,12 @@ map <leader>git :GitGutterToggle<cr>
 map <leader>gb  :Gblame<cr>
 map <leader>gs  :Gstatus<cr>
 set linespace=0
+
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green ctermbg=0
+highlight GitGutterChange ctermfg=yellow ctermbg=0
+highlight GitGutterDelete ctermfg=red ctermbg=0
+highlight GitGutterChangeDelete ctermfg=yellow ctermbg=0
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
