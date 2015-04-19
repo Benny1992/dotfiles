@@ -18,9 +18,11 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'https://github.com/avakhov/vim-yaml.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
 Plugin 'mattn/webapi-vim'
 Plugin 'gabrielelana/vim-markdown'
-Plugin 'Keithbsmiley/rspec.vim'
+" Plugin 'Keithbsmiley/rspec.vim'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'travitch/hasksyn'
 Plugin 'arsenerei/vim-ragel'
@@ -33,10 +35,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'tmhedberg/matchit'
 Plugin 'mkitt/tabline.vim'
 Plugin 'itchyny/lightline.vim'
-Plugin 'wting/rust.vim'
-Plugin 'groenewege/vim-less'
-Plugin 'evidens/vim-twig'
-" Plugin 'ahw/vim-hooks'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
@@ -236,28 +235,19 @@ nmap <S-Up> <nop>
 nmap <S-Down> <nop>
 imap ^ <Esc>
 
-" run specs with ',t' via Gary Bernhardt
+" run tests with for minitest/minispec ',t'
 function! RunTests(filename)
   " Write the file and run tests for the given filename
   :w
   :silent !clear
-  if match(a:filename, '\.feature$') != -1
-    :exec ":!bundle exec cucumber " . a:filename . "\n"
+  if match(a:filename, '_test\.rb') != -1
+    echo "running !ruby -Itest:lib " . a:filename . "\n"
+    :exec "!ruby -Itest:lib " . a:filename . "\n"
     :edit
-  elseif match(a:filename, '_test\.rb$') != -1
-    :exec ":!bundle exec ruby -Itest:lib " . a:filename . "\n"
+  elseif match(a:filename, '_spec\.rb') != -1
+    echo "running !ruby -Ispec:lib " . a:filename . "\n"
+    :exec "!ruby -Ispec:lib " . a:filename . "\n"
     :edit
-  elseif match(a:filename, '_spec\.rb$') != -1
-    :exec ":!bundle exec rspec " . a:filename . "\n"
-    :edit
-  " else
-  "   if filereadable("Gemfile")
-  "     :exec ":bundle exec rspec --color " . a:filename . "\n"
-  "     :edit
-  "   else
-  "     :exec ":!'rspec --color " . a:filename . "\n"
-  "     :edit
-  "   end
   end
 endfunction
 
@@ -283,15 +273,35 @@ function! RunTestFile(...)
   call RunTests(t:grb_test_file . command_suffix)
 endfunction
 
-function! RunNearestTest()
-  echo %
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
+function! RunMarkedTest()
+  call RunTestFile(" -n /XXX/")
 endfunction
 
-" run test runner
+function! RunAllTests()
+  :w
+  :silent !clear
+
+  let test_file = @%
+
+  if match(test_file, '_test\.rb') != -1
+    :exec "!rake test"
+    :edit
+  elseif match(test_file, '_spec\.rb') != -1
+    :exec "!rake spec"
+    :edit
+  end
+endfunction
+
+" minitest mappings
 map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
+map <leader>mt :call RunMarkedTest()<cr>
+map <leader>at :call RunAllTests()<cr>
+
+" rspec mappings
+map <Leader>s :call RunCurrentSpecFile()<CR>
+map <Leader>ns :call RunNearestSpec()<CR>
+map <Leader>ls :call RunLastSpec()<CR>
+map <Leader>as :call RunAllSpecs()<CR>
 
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -325,4 +335,6 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 
-au BufRead,BufNewFile *.rs setfiletype rust
+" au BufRead,BufNewFile *.rs setfiletype rust
+
+" let g:rspec_command = "Dispatch rspec {spec}"
