@@ -21,7 +21,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
 Plugin 'mattn/webapi-vim'
 Plugin 'gabrielelana/vim-markdown'
-" Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'travitch/hasksyn'
@@ -90,20 +89,22 @@ noremap <C-ScrollWheelRight> <nop>
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 syntax enable
-set t_Co=256 " 256 color mode
-set background=dark
 
 " colorscheme monokai
-" colorscheme hybrid
-" colorscheme jellyx
 " colorscheme base16-twilight
-colorscheme base16-railscasts
+" colorscheme base16-railscasts
+" colorscheme base16-codeschool
+
+let base16colorspace=256 " Access colors present in 256 colorspace
+set t_Co=256 " 256 color mode
+set background=dark
+colorscheme smyck
 
 syn match Todo "@todo" "@TODO" TODO todo contained
 
 " set up some custom colors
 highlight clear SignColumn
-highlight ColorColumn  ctermbg=235
+"highlight ColorColumn  ctermbg=235
 highlight LineNr       ctermbg=236 ctermfg=240
 highlight CursorLineNr ctermfg=2 cterm=bold ctermbg=235
 highlight CursorLine   ctermbg=235
@@ -172,7 +173,7 @@ command! Plain execute "%s/’/'/ge | %s/[“”]/\"/ge | %s/—/-/ge"
 
 " hint to keep lines short
 if exists('+colorcolumn')
-  set colorcolumn=120
+  set colorcolumn=80
 endif
 
 " execute current file
@@ -314,7 +315,6 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_php_checkers = ['phpcs', 'php']
 
 hi SpellBad ctermfg=0 ctermbg=2
 hi SpellCap ctermfg=0 ctermbg=2
@@ -336,5 +336,5 @@ let g:lightline = {
       \ }
 
 " au BufRead,BufNewFile *.rs setfiletype rust
-
-" let g:rspec_command = "Dispatch rspec {spec}"
+autocmd FileType ruby set iskeyword=@,!,?,48-57,_,192-255
+:nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T

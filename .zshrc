@@ -54,7 +54,7 @@ ZSH_THEME="benny"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(history chruby history-substring-search)
+plugins=(history history-substring-search)
 # chruby ruby rails gem
 
 source $ZSH/oh-my-zsh.sh
@@ -63,11 +63,8 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH="/usr/local/ldc2/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
 export PATH="/home/benny/.local/bin:$PATH"
 export PATH="/home/benny/.cabal/bin:$PATH"
-
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -90,8 +87,14 @@ export PATH="/home/benny/.cabal/bin:$PATH"
 
 # Always work in a tmux session if tmux is installed
 # [ -z "$TMUX" ] && export TERM=xterm-256color && tmux new -s hack
+[ -z "$TMUX" ] && export TERM=screen-256color && tmux new -s hack
+
+# Base16 Shell
+# BASE16_SHELL="$HOME/dev/other/dotfiles/base16-shell/base16-railscasts.dark.sh"
+# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 source /usr/local/share/gem_home/gem_home.sh
+source /usr/local/share/chruby/chruby.sh
 source /home/benny/.aliases
 
 
@@ -121,7 +124,7 @@ pretty_git_log() {
 
 
 # BEGIN Ruboto setup
-source ~/.rubotorc
+# source ~/.rubotorc
 # END Ruboto setup
 
 # Show all 256 colors with color number

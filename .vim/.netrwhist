@@ -1,8 +1,8 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/var/www/argealp/extension/hwargealp'
-let g:netrw_dirhist_2='/var/www/argealp/extension/hwargealp/design'
-let g:netrw_dirhist_3='/var/www/argealp/extension/hwargealp/design/argealp'
-let g:netrw_dirhist_4='/var/www/argealp/extension/hwargealp/design/argealp/templates'
-let g:netrw_dirhist_5='/var/www/argealp/extension/hwargealp/design/argealp/templates/profile'
-let g:netrw_dirhist_6='/var/www/RubyApplications/rack-blogengine'
+let g:netrw_dirhist_1='/home/benny'
+let g:netrw_dirhist_2='/home'
+let g:netrw_dirhist_3='/home/benny/dev/sti/dacodi-core/spec/services'
+let g:netrw_dirhist_4='/home/benny/dev/sti/dacodi-core/config'
+let g:netrw_dirhist_5='/home/benny/.gem/ruby/2.1.1/gems/ci_reporter-1.7.3'
+let g:netrw_dirhist_6='/home/benny/dev/ruby/gem_template/lib/gem_template'
