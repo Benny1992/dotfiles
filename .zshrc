@@ -8,11 +8,11 @@ ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="clean"
 # ZSH_THEME="avit"
 # ZSH_THEME="norm"
-# ZSH_THEME="cloud"
+ZSH_THEME="cloud"
 # ZSH_THEME="garyblessington"
 # ZSH_THEME="lambda"
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="benny"
+# ZSH_THEME="benny"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -86,8 +86,8 @@ export PATH="/home/benny/.cabal/bin:$PATH"
 # export TERM=screen-256color-bce
 
 # Always work in a tmux session if tmux is installed
-# [ -z "$TMUX" ] && export TERM=xterm-256color && tmux new -s hack
-[ -z "$TMUX" ] && export TERM=screen-256color && tmux new -s hack
+[ -z "$TMUX" ] && export TERM=xterm-256color && tmux new -s hack
+# [ -z "$TMUX" ] && export TERM=screen-256color && tmux new -s hack
 
 # Base16 Shell
 # BASE16_SHELL="$HOME/dev/other/dotfiles/base16-shell/base16-railscasts.dark.sh"
