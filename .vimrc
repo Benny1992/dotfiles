@@ -24,7 +24,6 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'travitch/hasksyn'
-Plugin 'arsenerei/vim-ragel'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -90,14 +89,13 @@ set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 syntax enable
 
-" colorscheme monokai
-" colorscheme base16-twilight
-" colorscheme base16-railscasts
-" colorscheme base16-codeschool
-
 let base16colorspace=256 " Access colors present in 256 colorspace
 set t_Co=256 " 256 color mode
 set background=dark
+
+" colorscheme summerfruit256
+" colorscheme monokai
+" colorscheme base16-railscasts
 colorscheme smyck
 
 syn match Todo "@todo" "@TODO" TODO todo contained
@@ -333,6 +331,11 @@ highlight GitGutterChangeDelete ctermfg=yellow ctermbg=0
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"x":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
 
 " au BufRead,BufNewFile *.rs setfiletype rust
