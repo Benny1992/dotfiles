@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 Plugin 'tpope/vim-rails.git'
+Plugin 'kshenoy/vim-signature'
 Plugin 'kien/ctrlp.vim'
 Plugin 'https://github.com/avakhov/vim-yaml.git'
 Plugin 'tpope/vim-fugitive'
