@@ -22,6 +22,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
+Plugin 'prophittcorey/vim-flay'
 Plugin 'mkitt/tabline.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'rust-lang/rust.vim'
@@ -121,17 +122,11 @@ vnoremap <leader>h :s/:\(\w*\) *=>/\1:/g<cr>
 " map markdown preview
 map <leader>m :!open -a Marked %<cr><cr>
 
+noremap <leader>dup :Flay<CR>
+
 " map git commands
-map <leader>l :!clear && git log -p %<cr>
-map <leader>d :!clear && git diff %<cr>
-
-" check code complexity and duplication for current file
-map <leader>x :!clear &&
- \ echo '----- Complexity -----' && flog % &&
- \ echo '\n----- Duplication -----' && flay %<cr>
-
-" map Silver Searcher
-map <leader>a :Ag!<space>
+map <leader>log :!clear && git log -p %<cr>
+map <leader>dif :!clear && git diff %<cr>
 
 " clear the command line and search highlighting
 noremap <C-l> :nohlsearch<CR>
@@ -196,6 +191,11 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:syntastic_ruby_checkers = ['rubocop', 'reek']
 let g:syntastic_javascript_checkers = ['jshint']
+
+let g:flay_on_open=0
+let g:flay_on_save=1
+let g:flay_minimum_mass=10
+let g:flay_piet_text="✗"
 
 hi SpellBad ctermfg=0 ctermbg=2
 hi SpellCap ctermfg=0 ctermbg=2
