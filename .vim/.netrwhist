@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/benny'
-let g:netrw_dirhist_2='/home'
-let g:netrw_dirhist_3='/home/benny/dev/sti/dacodi-core/spec/services'
-let g:netrw_dirhist_4='/home/benny/dev/sti/dacodi-core/config'
-let g:netrw_dirhist_5='/home/benny/.gem/ruby/2.1.1/gems/ci_reporter-1.7.3'
-let g:netrw_dirhist_6='/home/benny/dev/ruby/gem_template/lib/gem_template'
