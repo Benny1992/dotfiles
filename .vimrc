@@ -4,9 +4,6 @@ set encoding=utf-8
 " Using fish as shell breaks Vundle -> set shell
 set shell=/bin/bash
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -196,3 +193,17 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
+
+" Set specific linters
+" \   'ruby': ['rubocop', 'reek', 'brakeman', 'rails_best_practices'],
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\}
+
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
+
+let g:ale_sign_column_always = 1
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_ruby_reek_executable = 'bundle'

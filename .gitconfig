@@ -1,4 +1,6 @@
 [includeIf "gitdir:github/"]
   path = .gitconfig-github
-[includeIf "gitdir:work/"]
+[includeIf "gitdir:onlim/"]
   path = .gitconfig-work
+[core]
+  editor = vim
